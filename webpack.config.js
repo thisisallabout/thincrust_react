@@ -4,10 +4,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    entry: "./src/js/index.js",
+    entry: "./src/index.js",
     output: {
         filename: "./main.js",
-        chunkFilename: "[name].bundle.js"
+        chunkFilename: "[name].bundle.js",
+        publicPath: '/'
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -16,6 +17,15 @@ module.exports = {
         watchContentBase: true,
         progress: true
     },
+    devServer: {
+        historyApiFallback: true
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minChunks: 2
+        }
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "[name].css",
@@ -23,6 +33,7 @@ module.exports = {
         }),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
+            title: "thin crust",
             filename: "./index.html"
         })
     ],
@@ -48,7 +59,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
                 use: ["file-loader"]
             }
         ]
