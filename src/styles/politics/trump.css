@@ -68,41 +68,25 @@
     transform: translateZ(0);
 }
 
-.whattrumpsaid_analysis_group.selectionmode .whattrumpsaid_analysis_data.selected{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    z-index: 9999903;
-    border-radius: 0px;
-    box-shadow: none;
-    background: #fff;
-}
-
 .whattrumpsaid_analysis_data_wrapper {
     display: none;
     transform: translateZ(0);
 }
 
-.whattrumpsaid_analysis_group.selectionmode .whattrumpsaid_analysis_data.selected .whattrumpsaid_analysis_data_wrapper {
+.whattrumpsaid_analysis_data_wrapper.load {
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: scroll;
     background: #f5f5f5;
 }
 
 .whattrumpsaid_analysis_data_cover {
     padding: 15px 20px;
-}
-
-.whattrumpsaid_analysis_group.selectionmode .whattrumpsaid_analysis_data.selected .whattrumpsaid_analysis_data_cover {
-    display: none;
 }
 
 .whattrumpsaid_analysis_data_cover .cover_image{
@@ -595,7 +579,7 @@
     background-position: top right;
 }
 
-.whattrumpsaid_analysis_data .analysis_group{
+.whattrumpsaid_analysis_data_wrapper .analysis_group{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -604,7 +588,7 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item{
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -614,27 +598,27 @@
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item .item_title {
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item .item_title {
     justify-content: center;
     display: flex;
     flex-direction: column;
     width: 30vw;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item .item_img_copyright {
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item .item_img_copyright {
     color: #b1b1b1;
     font-size: 0.7em;
     position: absolute;
     bottom: 60px;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c03"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c03"]{
     color: #fff;
     padding: 5% 60px;
     margin: 25% 0 12% 0;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c04"]{
     background: #9c2400;
     color: #fff;
     width: 70%;
@@ -643,339 +627,339 @@
     justify-content: flex-start;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c04"] .item_title{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c04"] .item_title{
     width: 60vw;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c05"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c05"]{
     width: 70%;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1702c02"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1702c02"]{
     background: #fff;
     color: #000;
     padding: 8% 60px;
     margin: 25% 0 0 0;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1702c02"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1702c02"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1702c02"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1702c02"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1702c02"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1702c02"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1703c00"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1703c00"]{
     width: 70%;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1703c01"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1703c01"]{
     width: 70%;
     margin-left: auto;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1704c01"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1704c01"]{
     background: rgba(0, 0, 0, 0.89);
     margin: 30% 0 0 0;
     padding: 10% 60px;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1705c00"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1705c00"]{
     background: rgba(255, 255, 255, 0.89);
     margin: 30% 0 0 0;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1705c00"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1705c00"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1705c00"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1705c00"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1705c00"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1705c00"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c03"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c03"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c03"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c03"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c03"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c03"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c03"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c03"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c04"]{
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c04"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c04"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c04"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c04"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c04"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c04"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c05"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c05"]{
     color: #000;
     width: 70%;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c05"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c05"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c05"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c05"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c05"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c05"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c01"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c01"]{
     padding: 8% 60px;
     margin: 30% 0 0 0;
     color: #000;
     background: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c01"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c01"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c01"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c01"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c01"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c01"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c04"]{
     color: #fff;
     background: rgba(123, 123, 123, 0.9);
     padding: 10% 60px;
     margin: 30% 0 0% 0;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c00"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c00"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c00"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c00"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c00"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c00"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c00"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c00"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c02"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c02"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c02"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c02"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c02"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c02"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1708c02"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1708c02"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1709c03"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1709c03"]{
     color: #000;
     width: 70%;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1709c03"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1709c03"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1709c03"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1709c03"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1709c03"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1709c03"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c01"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c01"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c01"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c01"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c01"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c01"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c01"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c01"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c02"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c02"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c02"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c02"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c02"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c02"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1710c02"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1710c02"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c04"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c04"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c04"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
     font-size: 3em;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c04"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c04"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c04"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c04"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c05"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c05"]{
     width: 40%;
     color: #000;
     margin-left: auto;
     flex-direction: column;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c05"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c05"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c05"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c05"] .item_pickedtweets{
     background: #2b2b2b;
     margin-top: 40px;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c05"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c05"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c00"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c00"]{
     margin-left: auto;
     margin-top: 20%;
     flex-direction: column;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c00"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c00"] .item_pickedtweets{
     margin-top: 40px;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c04"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c04"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c04"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c04"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c04"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1712c04"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1712c04"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c00"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c00"]{
     color: #000;
     width: 70%;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c00"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c00"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c00"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c00"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c00"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c00"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c04"]{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c04"]{
     background: #fff;
     color: #000;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c04"] .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c04"] .msg_text{
     color: rgba(0, 0, 0, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c04"] .item_pickedtweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c04"] .item_pickedtweets{
     background: #2b2b2b;
 }
 
-.whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1801c04"] .item_pickedtweets .tweet_item{
+.whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1801c04"] .item_pickedtweets .tweet_item{
     color: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_item .title_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_item .title_text{
     font-size: 2.5em;
     font-weight: 600;
 }
 
-.whattrumpsaid_analysis_data .analysis_item .msg_text{
+.whattrumpsaid_analysis_data_wrapper .analysis_item .msg_text{
     margin-top: 10px;
     font-size: 1.25em;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.89);
 }
 
-.whattrumpsaid_analysis_data .analysis_item .item_pickedtweets {
+.whattrumpsaid_analysis_data_wrapper .analysis_item .item_pickedtweets {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -988,14 +972,14 @@
     background: #fff;
 }
 
-.whattrumpsaid_analysis_data .analysis_item .item_pickedtweets .tweet_item {
+.whattrumpsaid_analysis_data_wrapper .analysis_item .item_pickedtweets .tweet_item {
     font-size: 1.4em;
     font-weight: 600;
     color: #000;
     word-break: break-word;
 }
 
-.whattrumpsaid_analysis_data .analysis_item .item_revealtweets_action{
+.whattrumpsaid_analysis_data_wrapper .analysis_item .item_revealtweets_action{
     position: absolute;
     bottom: 20px;
     padding: 5px 0;
@@ -1006,19 +990,19 @@
     transition: all 200ms ease;
 }
 
-.whattrumpsaid_analysis_data .analysis_item.current .item_revealtweets_action.nobg{
+.whattrumpsaid_analysis_data_wrapper .analysis_item.current .item_revealtweets_action.nobg{
     color: #8c8c8c;
 }
 
-.whattrumpsaid_analysis_data .analysis_item.current .item_revealtweets_action{
+.whattrumpsaid_analysis_data_wrapper .analysis_item.current .item_revealtweets_action{
     opacity: 1;
 }
 
-.whattrumpsaid_analysis_data .analysis_item .item_tweets{
+.whattrumpsaid_analysis_data_wrapper .analysis_item .item_tweets{
     display: none;
 }
 
-.whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_panelactions, .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close-pre {
+.whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_panelactions, .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close-pre {
     position: fixed;
     padding: 0 15px 0 15px;
     margin: 25px;
@@ -1036,12 +1020,12 @@
     padding: 10px 0;
 }
 
-.whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close > p, .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close_pre > p{
+.whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close > p, .whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close_pre > p{
     font-weight: 700;
     margin-left: 7px;
 }
 
-.whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close > div, .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close-pre > div{
+.whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close > div, .whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close-pre > div{
     width: 9px;
     height: 15px;
     background-image: url('../../resources/symbol_arrow_left.png');
@@ -1163,28 +1147,28 @@
         width: auto;
     }
 
-    .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close > p, .whattrumpsaid_analysis_data .whattrumpsaid_analysis_data_action_close-pre > p {
+    .whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close > p, .whattrumpsaid_analysis_data_wrapper .whattrumpsaid_analysis_data_action_close-pre > p {
         display: none;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item{
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item{
         padding: 45% 30px 45% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item .item_title {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item .item_title {
         width: auto;
     }
 
-    .whattrumpsaid_analysis_data .analysis_item .title_text{
+    .whattrumpsaid_analysis_data_wrapper .analysis_item .title_text{
         font-size: 1.5em;
         width: auto;
     }
 
-    .whattrumpsaid_analysis_data .analysis_item .msg_text{
+    .whattrumpsaid_analysis_data_wrapper .analysis_item .msg_text{
         font-size: 0.95em;
     }
 
-    .whattrumpsaid_analysis_data .analysis_item .item_pickedtweets{
+    .whattrumpsaid_analysis_data_wrapper .analysis_item .item_pickedtweets{
         flex-direction: column;
         margin-top: 35px;
         display: flex;
@@ -1195,71 +1179,71 @@
         padding: 20px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_item .item_pickedtweets .tweet_item {
+    .whattrumpsaid_analysis_data_wrapper .analysis_item .item_pickedtweets .tweet_item {
         font-size: 1em;
     }
 
-    .whattrumpsaid_analysis_data .analysis_item .item_revealtweets_action {
+    .whattrumpsaid_analysis_data_wrapper .analysis_item .item_revealtweets_action {
         bottom: 10px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c03"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c03"] {
         padding: 15% 30px 15% 60px;
         margin: 45% 0 45% 0;
         background: #000;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c04"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c04"] {
         background: #9c2400;
         padding: 20% 30px;
         width: 65%;
         margin: 45% 0 45% 0;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1701c05"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1701c05"] {
         width: auto;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1702c02"]{
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1702c02"]{
         padding: 60px 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1703c00"]{
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1703c00"]{
         background: #003475;
         padding: 60px 30px;
         margin: 90% 0 0 0;
         width: auto;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1704c01"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1704c01"] {
         background: rgba(0, 0, 0, 0.89);
         margin: 30% 0 0 0;
         padding: 12% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1705c00"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1705c00"] {
         margin: 90% 0 0 0;
         padding: 12% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1706c05"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1706c05"] {
         padding: 25% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c01"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c01"] {
         padding: 12% 30px;
         margin: 30% 0 0 0;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1707c04"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1707c04"] {
         padding: 10% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c04"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c04"] {
         padding: 45% 30px 15% 30px;
     }
 
-    .whattrumpsaid_analysis_data .analysis_list .analysis_item[doughdata-id="1711c05"] {
+    .whattrumpsaid_analysis_data_wrapper .analysis_list .analysis_item[doughdata-id="1711c05"] {
         width: auto;
         color: #000;
         background: #fff;

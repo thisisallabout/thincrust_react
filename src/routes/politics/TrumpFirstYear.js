@@ -2,52 +2,46 @@ import React, { Fragment, lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import axios from 'axios';
 
-import st from '~/routes/politics/trump.css'
+import st from '~/styles/politics/trump.css'
 import DatasetLoader from '~/components/datasetLoader'
-
-
-function AnalysisMonthItem ({ list, month }) {
-
-    return (
-        <Fragment>
-        {list.map((object, i) => 
-            <Fragment key={object.month}>
-                {object.month === month &&
-                    <div className={st.whattrumpsaid_analysis_data_cover} key={i}>
-                        {object.image && (
-                            <div className={st.cover_image} key={object.image} style={{'backgroundImage': `linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url(${object.image})`}}></div>
-                            )
-                        }
-                        <div className={st.cover_info} key={'info_'+i}>
-                            <p className={st.month_title} key={'month_title_'+i}>{object.header}</p>
-                            <ul className={st.month_tags} key={'month_tags_'+i}>
-                                {object.keytag.map((tag, tagi) => 
-                                    <li key={tagi}>#{tag}</li>
-                                )}
-                            </ul>
-                        </div>
-                    </div>
-                }
-            </Fragment>
-        )}  
-        </Fragment>
-    )
-}
+import AnalysisMonthViewer from '~/components/trumpfirstyear/analysisMonthViewer'
+import AnalysisMonthItem from '~/components/trumpfirstyear/analysisMonthItem'
 
 function TrumpFirstYear({ match }) {
     const [data, setData] = useState({ list: [] });
+    const [isLoading, setIsLoading] = useState(false);
+    const [monthlyData, setMonthlyData] = useState({ list: [] });
+    const [isMonthlyLoading, setIsMonthlyLoading] = useState(false);
+
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true);
             const result = await axios(
                 'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/list_data.json',
             );
             
             setData({list: result.data});
+            setIsLoading(false);
         };
 
         fetchData();
     }, []);
+
+    const fetchMonhtlyData = (month) => {
+        console.log(month)
+        setIsMonthlyLoading(true);
+        const result = axios(
+            'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
+        ).then(async(response) => {
+            await setMonthlyData({list: response.data[0]});
+        })
+        .catch(error => {
+            console.log(error);
+        }).then(() => {
+            setIsMonthlyLoading(false);
+        });
+    };
 
 
     const analysis_month_index = [
@@ -77,17 +71,22 @@ function TrumpFirstYear({ match }) {
                     <p className={st.whattrumpsaid_action_details}>Details</p>
                 </div>
             </div>
+            {isLoading && (
+                <div>Loading dataset...</div>
+            ) }
 
             <div className={st.whattrumpsaid_section_monthly}>
                 <div className={st.whattrumpsaid_analysis_group}>
                     {analysis_month_index_natural.map((item, i) =>
                         <div className={st.whattrumpsaid_analysis_data} key={analysis_month_index_natural[i]} doughdata-month={analysis_month_index_natural[i]}>
-                            <AnalysisMonthItem list={data.list} month={analysis_month_index_natural[i]} />    
+                            <AnalysisMonthItem list={data.list} month={analysis_month_index_natural[i]} onClick={() => { fetchMonhtlyData(analysis_month_index_natural[i]) }} />    
                         </div>
                     )}
                 </div>
             </div>
-            <div className={st.whattrumpsaid_analysis_data_wrapper}></div>
+
+            <AnalysisMonthViewer data={monthlyData.list} removeMonthlyData={() => { setMonthlyData({ list: [] })}} />
+
             <div className={st.whattrumpsaid_datapopup}>
                 <div className={st.datapopup_contents}>
                 </div>
