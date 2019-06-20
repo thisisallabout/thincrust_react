@@ -2,7 +2,8 @@ import React, { lazy, Suspense, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 
-import st from "~/app.css";
+import st from "~/styles/app.css";
+import loader from '~/styles/transitions/loader.css';
 import Home from '~/routes/home';
 const Politics = lazy(() => import('~/routes/politics'));
 
@@ -27,23 +28,13 @@ const Crust = (props) => {
                     </div>
                 </div>
                 <Switch>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div className={loader.crust__loader}></div>}>
                     <Route exact path="/" component={Home} />
-                    <Route path={"/politic"} component={Politics} />
-                    <Route path="/:id" component={Politics}/>
+                    <Route path="/politics" component={Politics}/>
                 </Suspense>
                 </Switch>
             </div>
         </Router>
-    );
-}
-
-
-function WaitingComponent(Component) {
-    return props => (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Component {...props} />
-        </Suspense>
     );
 }
 

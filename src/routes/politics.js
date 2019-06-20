@@ -2,10 +2,10 @@ import React, { lazy, Suspense, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 
-import st from "~/app.css";
+import loader from '~/styles/transitions/loader.css';
 const TrumpFirstYear = lazy(() => import('~/routes/politics/TrumpFirstYear'));
 
-const topics = [
+const sections = [
     {
         name: 'TrumpFirstYear',
         id: 'TrumpFirstYear'
@@ -17,14 +17,16 @@ function Politics({match}) {
         <div>
             <h1>Topics</h1>
             <ul>
-                {topics.map(({ name, id }) => (
+                {sections.map(({ name, id }) => (
                     <li key={id}>
-                        <Link to={`${match.url}/TrumpFirstYear`}>{name}</Link>
+                        <Link to={`${match.url}/${id}`}>{name}</Link>
                     </li>
                 ))}
             </ul>
-
-            <Route path={`${match.path}/:typeId`} component={TrumpFirstYear} />
+            
+            <Suspense fallback={<div className={loader.crust__loader}></div>}>
+                <Route path={`${match.path}/TrumpFirstYear/:typeId?`} component={TrumpFirstYear} />
+            </Suspense>
         </div>
     )
 }

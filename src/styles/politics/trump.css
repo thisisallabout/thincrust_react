@@ -68,11 +68,6 @@
     transform: translateZ(0);
 }
 
-.whattrumpsaid_analysis_data_wrapper {
-    display: none;
-    transform: translateZ(0);
-}
-
 .whattrumpsaid_analysis_data_wrapper.load {
     display: flex;
     position: fixed;

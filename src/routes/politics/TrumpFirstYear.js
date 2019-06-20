@@ -1,13 +1,19 @@
 import React, { Fragment, lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import axios from 'axios';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import st from '~/styles/politics/trump.css'
-import DatasetLoader from '~/components/datasetLoader'
+import slidetransition from '~/styles/transitions/slideinout.css'
+
+import loader from '~/styles/transitions/loader.css';
 import AnalysisMonthViewer from '~/components/trumpfirstyear/analysisMonthViewer'
 import AnalysisMonthItem from '~/components/trumpfirstyear/analysisMonthItem'
 
-function TrumpFirstYear({ match }) {
+function TrumpFirstYear({ match, history }) {
+    const { typeId } = match.params;
+
     const [data, setData] = useState({ list: [] });
     const [isLoading, setIsLoading] = useState(false);
     const [monthlyData, setMonthlyData] = useState({ list: [] });
@@ -26,7 +32,16 @@ function TrumpFirstYear({ match }) {
         };
 
         fetchData();
+        if (typeId) {
+            fetchMonhtlyData(typeId)
+        }
     }, []);
+
+    const removeMonthlyData = async() => {
+        await setMonthlyData({ list: [] })
+        const origin = match.path.split('/:typeId')
+        history.push(origin[0])
+    }
 
     const fetchMonhtlyData = (month) => {
         console.log(month)
@@ -35,6 +50,7 @@ function TrumpFirstYear({ match }) {
             'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
         ).then(async(response) => {
             await setMonthlyData({list: response.data[0]});
+            history.push(match.url + '/' + month)
         })
         .catch(error => {
             console.log(error);
@@ -72,11 +88,14 @@ function TrumpFirstYear({ match }) {
                 </div>
             </div>
             {isLoading && (
-                <div>Loading dataset...</div>
+                <div className={`${loader.crust__loader} ${loader.dataset}`}></div>
+            ) }
+            {isMonthlyLoading && (
+                <div className={`${loader.crust__loader} ${loader.dataset}`}></div>
             ) }
 
             <div className={st.whattrumpsaid_section_monthly}>
-                <div className={st.whattrumpsaid_analysis_group}>
+                <div className={st.whattrumpsaid_analysis_group} >
                     {analysis_month_index_natural.map((item, i) =>
                         <div className={st.whattrumpsaid_analysis_data} key={analysis_month_index_natural[i]} doughdata-month={analysis_month_index_natural[i]}>
                             <AnalysisMonthItem list={data.list} month={analysis_month_index_natural[i]} onClick={() => { fetchMonhtlyData(analysis_month_index_natural[i]) }} />    
@@ -84,8 +103,19 @@ function TrumpFirstYear({ match }) {
                     )}
                 </div>
             </div>
-
-            <AnalysisMonthViewer data={monthlyData.list} removeMonthlyData={() => { setMonthlyData({ list: [] })}} />
+            
+            <TransitionGroup component={null}>
+                {monthlyData.list.data && (
+                <CSSTransition
+                    timeout={300}
+                    classNames={slidetransition}
+                    unmountOnExit
+                    appear>
+                    <AnalysisMonthViewer data={monthlyData.list} removeMonthlyData={() => { removeMonthlyData() }} />
+                </CSSTransition>
+                )}
+            </TransitionGroup>
+            
 
             <div className={st.whattrumpsaid_datapopup}>
                 <div className={st.datapopup_contents}>
