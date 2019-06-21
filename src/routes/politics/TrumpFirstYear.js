@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+import store from '~/store';
+import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
+
 import st from '~/styles/politics/trump.css'
 import slidetransition from '~/styles/transitions/slideinout.css'
 
@@ -11,8 +14,8 @@ import loader from '~/styles/transitions/loader.css';
 import AnalysisMonthViewer from '~/components/trumpfirstyear/analysisMonthViewer'
 import AnalysisMonthItem from '~/components/trumpfirstyear/analysisMonthItem'
 
-function TrumpFirstYear({ match, history }) {
-    const { typeId } = match.params;
+function TrumpFirstYear(props) {
+    const { typeId } = props.match.params;
 
     const [data, setData] = useState({ list: [] });
     const [isLoading, setIsLoading] = useState(false);
@@ -35,12 +38,14 @@ function TrumpFirstYear({ match, history }) {
         if (typeId) {
             fetchMonhtlyData(typeId)
         }
+
+        store.dispatch({ type: APP_BACKGROUND_THEME, state: { id:'black' } })
     }, []);
 
     const removeMonthlyData = async() => {
         await setMonthlyData({ list: [] })
         const origin = match.path.split('/:typeId')
-        history.push(origin[0])
+        props.history.push(origin[0])
     }
 
     const fetchMonhtlyData = (month) => {
@@ -50,7 +55,7 @@ function TrumpFirstYear({ match, history }) {
             'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
         ).then(async(response) => {
             await setMonthlyData({list: response.data[0]});
-            history.push(match.url + '/' + month)
+            props.history.push(match.url + '/' + month)
         })
         .catch(error => {
             console.log(error);

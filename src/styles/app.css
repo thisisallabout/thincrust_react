@@ -38,3 +38,23 @@ body{
     transition: all 300ms ease;
 	backface-visibility: hidden;
 }
+
+.crust__header{
+    position: absolute;
+    display: flex;
+    z-index: 9999902;
+    align-items: center;
+}
+
+.crust_logo{
+    width: 25px;
+    height: 25px;
+    background-image: url('../resources/tiaa_black.png');
+    background-size: 25px;
+    flex-shrink: 0;
+    text-indent: -9999px;
+}
+
+.header_container {
+    margin: 20px 35px;
+}

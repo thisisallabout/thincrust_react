@@ -1,37 +1,37 @@
-import React, { lazy, Suspense, Fragment } from "react";
+import React, { lazy, Suspense, Fragment, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Provider, connect } from 'react-redux';
+
+//redux
+import store from '~/store';
 
 import st from "~/styles/app.css";
 import loader from '~/styles/transitions/loader.css';
 import Home from '~/routes/home';
+import AppHeader from '~/components/appHeader';
+import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
+import getCurrentBackgroundTheme from '~/selectors/appBackgroundTheme';
+
 const Politics = lazy(() => import('~/routes/politics'));
+const TrumpFirstYear = lazy(() => import('~/routes/politics/TrumpFirstYear'));
 
 //class="(.+?)"
 //className={st.$1}
 
-const Crust = (props) => {
+const Crust = () => {
     return (
         <Router>
             <div className="thincrust__app">
-                <div className={st.crust__header}>
-                    <div className={st.header_container}>
-                        <div className={st.crust_logo}>thincrust</div>
-                        <ul className={st.header_sections}>
-                            <Link to={'/'} key={'home'}>
-                                <li className={st.header_section_item} data-id="nav-home">Home</li>
-                            </Link>
-                            <Link to={'/politics'} key={'politics'}>
-                                <li className={st.header_section_item} data-id="nav-politics">Politics</li>
-                            </Link>
-                        </ul>
-                    </div>
-                </div>
+                <AppHeader />
+
                 <Switch>
-                <Suspense fallback={<div className={loader.crust__loader}></div>}>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/politics" component={Politics}/>
-                </Suspense>
+                    <Suspense fallback={<div className={loader.crust__loader}></div>}>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/politics/TrumpFirstYear" render={
+                            props => <TrumpFirstYear {...props} onThemeChanges={() => changeAppThemeState()} /> } /> 
+                        <Route path="/politics" component={Politics} />
+                    </Suspense>
                 </Switch>
             </div>
         </Router>
@@ -44,6 +44,8 @@ const sections = [
 ];
 
 ReactDOM.render(
-    <Crust sections={sections} />,
+    <Provider store={store}>
+        <Crust onThemeChanges={() => onThemeChanges()} />
+    </Provider>,
     document.querySelector("#thincrust__root")
 );
