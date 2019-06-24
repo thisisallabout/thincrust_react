@@ -1,0 +1,55 @@
+.dough_hero {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 35% 0 65px;
+    justify-content: center;
+    z-index: 999909;
+}
+
+.dough_hero .hero1 {
+    font-size: 1.2em;
+    font-weight: 500;
+    word-wrap: break-word;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.dough_hero .hero2 {
+    font-size: 0.9em;
+    color: #7c7c7c;
+}
+
+.dough_submitdata {
+    padding: 10px 30% 50px 65px;
+}
+
+.dough_submitdata input, .dough_submitdata textarea {
+    font-size: 0.8em;
+    word-wrap: break-word;
+    padding: 9px;
+    width: 70%;
+    border: 3px solid #7c7c7c7c;
+    border-radius: 10px;
+    background: transparent;
+    color: #fff;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #7c7c7c7c;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #7c7c7c7c;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #7c7c7c7c;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #7c7c7c7c;
+}

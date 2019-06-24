@@ -1,11 +1,13 @@
 import React, { Fragment, lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import store from '~/store';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
+import { getCurrentBackgroundTheme } from '~/selectors/appBackgroundTheme';
 
 import st from '~/styles/politics/trump.css'
 import slidetransition from '~/styles/transitions/slideinout.css'
@@ -14,8 +16,8 @@ import loader from '~/styles/transitions/loader.css';
 import AnalysisMonthViewer from '~/components/trumpfirstyear/analysisMonthViewer'
 import AnalysisMonthItem from '~/components/trumpfirstyear/analysisMonthItem'
 
-function TrumpFirstYear(props) {
-    const { typeId } = props.match.params;
+function TrumpFirstYear({match, history, appTheme}) {
+    const { typeId } = match.params;
 
     const [data, setData] = useState({ list: [] });
     const [isLoading, setIsLoading] = useState(false);
@@ -42,10 +44,17 @@ function TrumpFirstYear(props) {
         store.dispatch({ type: APP_BACKGROUND_THEME, state: { id:'black' } })
     }, []);
 
+    useEffect(() => {
+        if (!typeId) {
+            removeMonthlyData();
+        }
+    }, [typeId]);
+
     const removeMonthlyData = async() => {
         await setMonthlyData({ list: [] })
-        const origin = match.path.split('/:typeId')
-        props.history.push(origin[0])
+        history.push({
+            pathname: '/politics/TrumpFirstYear'
+        })
     }
 
     const fetchMonhtlyData = (month) => {
@@ -55,7 +64,7 @@ function TrumpFirstYear(props) {
             'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
         ).then(async(response) => {
             await setMonthlyData({list: response.data[0]});
-            props.history.push(match.url + '/' + month)
+            history.push(`/politics/TrumpFirstYear/${month}`)
         })
         .catch(error => {
             console.log(error);
@@ -84,12 +93,13 @@ function TrumpFirstYear(props) {
     
 
     return (
-        <div>
+        <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
             <div className={st.whattrumpsaid_hero}>
                 <div className={st.whattrumpsaid_herotext}>
                     <p className={st.hero1}>Reading Trump's moves</p>
                     <p className={st.hero1}>through his tweets</p>
-                    <p className={st.whattrumpsaid_action_details}>Details</p>
+                    <p className={st.hero2}>We all know that President Trump loves posting on Twitter. And that means you can see through his fanciful game by tweets. Here's an analysis of his first year tweets since day one.</p>
+                    <p className={st.hero3}>Last updated on June 24, 2018. Editor: Trevor Stonefield, Data Analyst: "Todd" Seungyun Oh</p>
                 </div>
             </div>
             {isLoading && (
@@ -134,4 +144,12 @@ function TrumpFirstYear(props) {
     )
 }
 
-export default TrumpFirstYear;
+
+const mapStateToProps = state => ({
+    appTheme: getCurrentBackgroundTheme(state.crustState),
+  });
+  
+export default connect(
+    mapStateToProps
+)(TrumpFirstYear);
+  

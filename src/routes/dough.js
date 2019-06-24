@@ -17,7 +17,7 @@ const sections = [
     }
 ];
 
-function Politics({match}) {
+function Dough ({match}) {
     
     useEffect(() => {
         store.dispatch({ type: APP_BACKGROUND_THEME, state: { id: 'white' } })
@@ -25,14 +25,7 @@ function Politics({match}) {
     
     return (
         <div>
-            <h1>Topics</h1>
-            <ul>
-                {sections.map(({ name, id }) => (
-                    <li key={id}>
-                        <Link to={`${match.url}/${id}`}>{name}</Link>
-                    </li>
-                ))}
-            </ul>
+            <h1>Dough</h1>
             
             <Suspense fallback={<div className={loader.crust__loader}></div>}>
                 <Route path={`${match.path}/TrumpFirstYear/:typeId?`} component={TrumpFirstYear} />
@@ -42,4 +35,4 @@ function Politics({match}) {
 }
 
 
-export default Politics;
+export default Dough;

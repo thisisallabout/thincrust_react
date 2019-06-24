@@ -15,6 +15,10 @@ import getCurrentBackgroundTheme from '~/selectors/appBackgroundTheme';
 
 const Politics = lazy(() => import('~/routes/politics'));
 const TrumpFirstYear = lazy(() => import('~/routes/politics/TrumpFirstYear'));
+const Inside2020Candidates = lazy(() => import('~/routes/politics/Inside2020Candidates'))
+
+const Dough = lazy(() => import('~/routes/dough'));
+const DoughLDAEditor = lazy(() => import('~/routes/dough/ldaeditor'));
 
 //class="(.+?)"
 //className={st.$1}
@@ -28,9 +32,26 @@ const Crust = () => {
                 <Switch>
                     <Suspense fallback={<div className={loader.crust__loader}></div>}>
                         <Route exact path="/" component={Home} />
-                        <Route path="/politics/TrumpFirstYear" render={
-                            props => <TrumpFirstYear {...props} onThemeChanges={() => changeAppThemeState()} /> } /> 
-                        <Route path="/politics" component={Politics} />
+                        <Route
+                            path="/politics"
+                            render={({ match: { url } }) => (
+                                <>
+                                    <Route path={`${url}/`} component={Politics} exact />
+                                    <Route path={`${url}/TrumpFirstYear/:typeId?`} component={TrumpFirstYear} />
+                                    <Route path={`${url}/Inside2020Candidates/:typeId?`} component={Inside2020Candidates} />
+                                </>
+                            )}
+                        />
+
+                        <Route
+                            path="/dough"
+                            render={({ match: { url } }) => (
+                                <>
+                                    <Route path={`${url}/`} component={Dough} exact />
+                                    <Route path={`${url}/ldaeditor/:typeId?`} component={DoughLDAEditor} />
+                                </>
+                            )}
+                        />
                     </Suspense>
                 </Switch>
             </div>
@@ -45,7 +66,7 @@ const sections = [
 
 ReactDOM.render(
     <Provider store={store}>
-        <Crust onThemeChanges={() => onThemeChanges()} />
+        <Crust />
     </Provider>,
     document.querySelector("#thincrust__root")
 );

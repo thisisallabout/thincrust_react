@@ -23,6 +23,9 @@ const AppHeader = ({ appTheme }) => {
             <Link to={'/politics/TrumpFirstYear'} key={'TrumpFirstYear'}>
                 <li className={st.header_section_item} data-id="nav-politics">TrumpFirstYear</li>
             </Link>
+            <Link to={'/politics/Inside2020Candidates'} key={'Inside2020Candidates'}>
+                <li className={st.header_section_item} data-id="nav-politics">Inside2020Candidates</li>
+            </Link>
             <Link to={'/politics'} key={'politics'}>
                 <li className={st.header_section_item} data-id="nav-politics">Politics</li>
             </Link>

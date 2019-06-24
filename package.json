@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack --mode development",
-        "start": "webpack-dev-server --open --mode development"
+        "start": "webpack-dev-server --open 'Google Chrome' --mode development"
     },
     "keywords": [],
     "author": "",
