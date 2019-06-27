@@ -10,7 +10,7 @@
     font-size: 1.2em;
     font-weight: 500;
     word-wrap: break-word;
-    color: #fff;
+    color: #000;
     margin: 5px 0;
 }
 
@@ -31,7 +31,7 @@
     border: 3px solid #7c7c7c7c;
     border-radius: 10px;
     background: transparent;
-    color: #fff;
+    color: #000;
 }
 
 ::-webkit-input-placeholder {
@@ -52,4 +52,94 @@
 :-moz-placeholder {
     /* Firefox 18- */
     color: #7c7c7c7c;
+}
+
+.dough_renderdata {
+    display: flex;
+}
+
+.dough_renderdata.load {
+    display: flex;
+    padding: 30px 65px 0 65px;
+    justify-content: center;
+    color: #000;
+    flex-direction: column;
+}
+
+.dough_renderdata .data_group {
+    padding: 20px;
+    margin: 13px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.dough_renderdata .datagroup_header {
+    font-weight: 600;
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.dough_renderdata .datagroup_content {
+    width: 60%;
+}
+
+.dough_renderdata .datagroup_editor {
+    width: 37%;
+}
+
+.dough_renderdata .data_item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.dough_renderdata .item_metadata {
+    margin-top: 9px;
+    opacity: 0.9;
+    font-size: 0.95em;
+}
+
+.dough_renderdata .item_metadata .item_link {
+    padding: 8px;
+    background: rgba(223, 223, 223, 0.815);
+    border-radius: 10px;
+    max-width: 50%;
+    word-break: break-all;
+    font-size: 0.9em;
+    margin: 7px 0;
+}
+
+.dough_renderdata .item_additionaltags {
+    display: flex;
+}
+
+.dough_renderdata .item_additionaltags > li {
+    font-weight: 600;
+    font-size: 0.85em;
+    margin: 7px 7px 0 0;
+    color: rgb(0, 102, 255);
+}
+
+.dough_renderdata .item_metadata .item_timestamp, .dough_renderdata .item_metadata .item_topiccontrib {
+    font-size: 0.85em;
+    margin: 7px 0;
+}
+
+.dough_renderdata .datagroup_editor_item {
+    border-left: 2px solid #4141415c;
+    padding: 3px 10px;
+    margin: 0 0 20px 0;
+}
+
+.dough_renderdata input {
+    word-wrap: break-word;
+    padding: 6px 0;
+    font-size: 1em;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #000;
 }
