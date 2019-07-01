@@ -10,7 +10,7 @@
     font-size: 1.2em;
     font-weight: 500;
     word-wrap: break-word;
-    color: #000;
+    color: #fff;
     margin: 5px 0;
 }
 
@@ -23,15 +23,21 @@
     padding: 10px 30% 50px 65px;
 }
 
+.dough_submitdata .hero2 {
+    font-size: 0.9em;
+    color: #7c7c7c;
+    margin: 6px 0;
+}
+
 .dough_submitdata input, .dough_submitdata textarea {
     font-size: 0.8em;
     word-wrap: break-word;
-    padding: 9px;
+    padding: 7px;
     width: 70%;
     border: 3px solid #7c7c7c7c;
-    border-radius: 10px;
+    margin-bottom: 5px;
     background: transparent;
-    color: #000;
+    color: #fff;
 }
 
 ::-webkit-input-placeholder {
@@ -60,19 +66,20 @@
 
 .dough_renderdata.load {
     display: flex;
-    padding: 30px 65px 0 65px;
+    padding: 30px 15px 0 15px;
     justify-content: center;
-    color: #000;
+    color: #fff;
     flex-direction: column;
 }
 
 .dough_renderdata .data_group {
-    padding: 20px;
-    margin: 13px 0;
+    padding: 30px;
+    margin: 7.5px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: #212121;
+    color: #fff;
 }
 
 .dough_renderdata .datagroup_header {
@@ -83,17 +90,22 @@
 }
 
 .dough_renderdata .datagroup_content {
-    width: 60%;
+    display: flex;
+    overflow-x: scroll;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .dough_renderdata .datagroup_editor {
-    width: 37%;
+    margin-top: 30px;
 }
 
 .dough_renderdata .data_item {
-    padding-bottom: 18px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    padding: 20px;
+    margin-right: 25px;
+    background: rgb(21, 21, 21);
+    width: 36%;
+    flex-shrink: 0;
 }
 
 .dough_renderdata .item_metadata {
@@ -104,9 +116,7 @@
 
 .dough_renderdata .item_metadata .item_link {
     padding: 8px;
-    background: rgba(223, 223, 223, 0.815);
-    border-radius: 10px;
-    max-width: 50%;
+    background: rgba(35, 35, 35, 0.815);
     word-break: break-all;
     font-size: 0.9em;
     margin: 7px 0;
@@ -120,7 +130,7 @@
     font-weight: 600;
     font-size: 0.85em;
     margin: 7px 7px 0 0;
-    color: rgb(0, 102, 255);
+    color: rgb(214, 255, 0);
 }
 
 .dough_renderdata .item_metadata .item_timestamp, .dough_renderdata .item_metadata .item_topiccontrib {
@@ -129,9 +139,8 @@
 }
 
 .dough_renderdata .datagroup_editor_item {
-    border-left: 2px solid #4141415c;
-    padding: 3px 10px;
     margin: 0 0 20px 0;
+    width: 100%;
 }
 
 .dough_renderdata input {
@@ -141,5 +150,9 @@
     width: 100%;
     border: none;
     background: transparent;
-    color: #000;
+    color: #fff;
+}
+
+input:focus {
+    outline: none;
 }

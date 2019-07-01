@@ -15,15 +15,8 @@ function LDAEditorRenderer (props) {
     }, [ldaData]);
 
     const editTopicTitle = (topickey, e) => {
-        let newKey = 
-            {   
-                "topic_keywords": topickey[0].topic_keyword,
-                "items": topickey,
-                "topic_title": e.target.value
-            }
-        console.log(newKey)
-        const newData = ldaData.push(newKey)
-        setldaData(newData)
+        
+        //setldaData(newData)
     }
 
     return (
@@ -31,11 +24,11 @@ function LDAEditorRenderer (props) {
             <div className={dcm.dough_renderdata}></div>
         ) : (
         <div className={`${dcm.dough_renderdata} ${dcm.load}`} key="LDAeditor_renderer">
-            {Object.keys(data).map((key, index) => 
-                <div className={dcm.data_group} key={index} doughdata-dict={JSON.stringify(data[key])}>
-                    <p className={dcm.datagroup_header}>{key}</p>
+            {data.map((group, index) => 
+                <div className={dcm.data_group} key={group.id}>
+                    <p className={dcm.datagroup_header}>{group.topic_keywords}</p>
                     <div className={dcm.datagroup_content}>
-                    {data[key].map((item) => 
+                    {group.items.map((item) => 
                         <div className={dcm.data_item} key={item.id} doughdata-id={item.id} doughdata-dict={JSON.stringify(item)}>
                             <p className={dcm.item_text}>{item.tweet}</p>
 
@@ -60,17 +53,18 @@ function LDAEditorRenderer (props) {
                         </div>
                     )}
                     </div>
-                    <div className={dcm.datagroup_editor} doughdata-id={data[key][0].topic_keyword}>
-                        <div className={dcm.datagroup_editor_item} doughdata-id={data[key][0].topic_keyword}>
+                    {/*
+                    <div className={dcm.datagroup_editor}>
+                        <div className={dcm.datagroup_editor_item}>
                             <p>Topic title</p>
                             <input type="text" placeholder='Title' />
                         </div>
 
-                        <div className={dcm.datagroup_editor_item} doughdata-id={data[key][0].topic_keyword}>
+                        <div className={dcm.datagroup_editor_item}>
                             <p>Topic description</p>
                             <input type="text" placeholder="Description" />
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             )}
         </div>
