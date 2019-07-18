@@ -55,24 +55,34 @@ body{
     margin-right: 10px;
 }
 
-
-.header_container[crust-apptheme='black'] .crust_logo{
-    background-image: url('../resources/tiaa_white.png');
-}
-
 .header_container {
     padding: 16px 35px;
     width: calc(100% - 70px);
     display: flex;
     align-items: center;
     position: fixed;
-    z-index: 999999901;
-    background: rgb(232, 232, 232);
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 100ms ease;
 }
 
-.header_container[crust-apptheme='black'] {
+.header_container.header__scrolled {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999999901;
+    background: rgb(232, 232, 232);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.header_container.header__scrolled[crust-apptheme='black'] {
     color: #fff;
-    background: rgb(27, 27, 27);
+    background: rgb(25, 25, 25);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.header_container[crust-apptheme='black'] .crust_logo{
+    background-image: url('../resources/tiaa_white.png');
 }
 
 .header_sections{

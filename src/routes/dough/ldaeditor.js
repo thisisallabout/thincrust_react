@@ -6,6 +6,7 @@ import { groupBy, filter, uniqueId } from 'lodash';
 
 import loader from '~/styles/transitions/loader.css';
 import store from '~/store';
+import AppHeader from '~/components/appHeader';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
 import { getCurrentBackgroundTheme } from '~/selectors/appBackgroundTheme';
 
@@ -48,7 +49,7 @@ const DoughLDAEditor = ({ match, history, appTheme }) => {
             reformatted.push({
                 "id": uniqueId(ldaDataName + '_'),
                 "topic_keywords": item.split(','),
-                "items": groupByTopic[item]
+                "items": groupByTopic[item].sort((a, b) => b.topic_contribution_percentage - a.topic_contribution_percentage)
             })
         })
 
@@ -62,6 +63,7 @@ const DoughLDAEditor = ({ match, history, appTheme }) => {
 
     return (
         <div crust-apptheme={appTheme} style={appTheme == 'black' ? { 'backgroundColor': `#000` } : { 'backgroundColor': `#fff` }}>
+            <AppHeader />
             <div className={dcm.dough_hero}>
                 <p className={dcm.hero1}>LDA Topic Viewer</p>
                 <p className={dcm.hero2}>Provide a topic modeling result created using Dough to view or edit the result.</p>

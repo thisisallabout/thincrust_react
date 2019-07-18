@@ -13,9 +13,12 @@ import AppHeader from '~/components/appHeader';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
 import getCurrentBackgroundTheme from '~/selectors/appBackgroundTheme';
 
+const About = lazy(() => import('~/routes/about'));
+
 const Politics = lazy(() => import('~/routes/politics'));
 const TrumpFirstYear = lazy(() => import('~/routes/politics/TrumpFirstYear'));
-const Inside2020Candidates = lazy(() => import('~/routes/politics/Inside2020Candidates'))
+const TrumpAcrossTime = lazy(() => import('~/routes/politics/TrumpAcrossTime'));
+const Inside2020Democrats = lazy(() => import('~/routes/politics/Inside2020Democrats'))
 
 const Dough = lazy(() => import('~/routes/dough'));
 const DoughLDAEditor = lazy(() => import('~/routes/dough/ldaeditor'));
@@ -27,33 +30,35 @@ const Crust = () => {
     return (
         <Router>
             <div className="thincrust__app">
-                <AppHeader />
+                
 
-                <Switch>
-                    <Suspense fallback={<div className={loader.crust__loader}></div>}>
-                        <Route exact path="/" component={Home} />
-                        <Route
-                            path="/politics"
-                            render={({ match: { url } }) => (
-                                <>
-                                    <Route path={`${url}/`} component={Politics} exact />
-                                    <Route path={`${url}/TrumpFirstYear/:typeId?`} component={TrumpFirstYear} />
-                                    <Route path={`${url}/Inside2020Candidates/:typeId?`} component={Inside2020Candidates} />
-                                </>
-                            )}
-                        />
+            <Switch>
+                <Suspense fallback={<div className={loader.crust__loader}></div>}>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route
+                        path="/politics"
+                        render={({ match: { url } }) => (
+                            <>
+                                <Route path={`${url}/`} component={Politics} exact />
+                                <Route path={`${url}/TrumpFirstYear/:typeId?`} component={TrumpFirstYear} />
+                                <Route path={`${url}/Inside2020/Democrats/:typeId?`} component={Inside2020Democrats} />
+                                <Route path={`${url}/TrumpAcrossTime/:typeId?`} component={TrumpAcrossTime} />
+                            </>
+                        )}
+                    />
 
-                        <Route
-                            path="/dough"
-                            render={({ match: { url } }) => (
-                                <>
-                                    <Route path={`${url}/`} component={Dough} exact />
-                                    <Route path={`${url}/ldaeditor/:typeId?`} component={DoughLDAEditor} />
-                                </>
-                            )}
-                        />
-                    </Suspense>
-                </Switch>
+                    <Route
+                        path="/dough"
+                        render={({ match: { url } }) => (
+                            <>
+                                <Route path={`${url}/`} component={Dough} exact />
+                                <Route path={`${url}/ldaeditor/:typeId?`} component={DoughLDAEditor} />
+                            </>
+                        )}
+                    />
+                </Suspense>
+            </Switch>
             </div>
         </Router>
     );

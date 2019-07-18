@@ -6,6 +6,7 @@ import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import store from '~/store';
+import AppHeader from '~/components/appHeader';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
 import { getCurrentBackgroundTheme } from '~/selectors/appBackgroundTheme';
 
@@ -94,7 +95,9 @@ function TrumpFirstYear({match, history, appTheme}) {
 
     return (
         <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
+            <AppHeader />
             <div className={st.whattrumpsaid_hero}>
+                <div className={st.crust_logo}></div>
                 <div className={st.whattrumpsaid_herotext}>
                     <p className={st.hero1}>Reading Trump's moves</p>
                     <p className={st.hero1}>through his tweets</p>

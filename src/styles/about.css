@@ -1,0 +1,119 @@
+
+.abouttiaa_hero {
+    display: flex;
+    flex-direction: column;
+    padding: 19vh 100px 60px 65px;
+    width: 55vw;
+    justify-content: center;
+    z-index: 999909;
+    flex-shrink: 0;
+}
+
+.crust_logo {
+    width: 30px;
+    height: 30px;
+    background-image: url('../resources/tiaa_black.png');
+    background-size: 30px;
+    flex-shrink: 0;
+    text-indent: -9999px;
+    margin-bottom: 10px;
+}
+
+.abouttiaa_hero .hero1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #000;
+}
+
+.abouttiaa_hero .hero2 {
+    color: #505050;
+    font-size: 1.05em;
+    word-wrap: break-word;
+    margin-top: 23px;
+}
+
+.abouttiaa_hero .hero2 > p{
+    margin-top: 7px;
+}
+
+.abouttiaa_hero .hero3 {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #525252;
+}
+
+/* data */
+
+.abouttiaa_team {
+    padding: 50px 150px 50px 65px;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+}
+
+.abouttiaa_team .title_text{
+    font-size: 1.7em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.abouttiaa_team li{
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+
+.abouttiaa_team li:nth-last-child(1){
+    margin-bottom: 0;
+}
+
+.abouttiaa_team li .member_title{
+    font-size: 1.05em;
+    font-weight: 700;
+}
+
+.abouttiaa_team li .member_desc{
+    margin-top: 7px;
+    font-size: 0.95em;
+}
+
+.abouttiaa_team li .member_desc p{
+    margin-bottom: 7px;
+}
+
+.abouttiaa_team li .social_channels{
+    display: flex;
+    margin-top: 13px;
+}
+
+.abouttiaa_team li .social_channels a > div{
+    width: 22px;
+    height: 19px;
+    background-image: url('../resources/symbol_twitter.png');
+    background-size: cover;
+    margin-right: 13px;
+}
+
+.abouttiaa_team li .social_channels a > div.email{
+    width: 24px;
+    height: 19px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAgCAMAAABXc8oyAAAAVFBMVEUAAABVVVVVVVVcXFxYWFhVVVVbW1tVVVVUVFRWVlZUVFRTU1NUVFRTU1NUVFRUVFRUVFRTU1NUVFRTU1NUVFRTU1NUVFRTU1NUVFRUVFRTU1NTU1MbFdYNAAAAG3RSTlMAAwwZGhscM09QcJChpbDM4ePl5uvs8/v8/f4JIfyTAAAAtklEQVR42t3UzQ6CMBAE4AEtvy5IK1jt+7+nSgmDsZVedQ8Nga/ZmQvAUbTbGS0KOFxcwowKJ5c0gnMaNLg+z2r4Zobqdc4QeWtjzLY5CIGyD7u+BDy0HiJrpk82NRm2sCsAoOjeFd8vkDd9KZbgphkyiy/FEsxOyA+Ri7hxVb2sWqPUjEK4Dc8SQchSLBGCzMasEchSLEF4Xx9ZiiUikPOj0P0TNGlOQ9KgQI2JPyko2d1uROEBa5x2oxosvp4AAAAASUVORK5CYII=");
+    background-size: cover;
+    margin-right: 13px;
+}
+
+.abouttiaa_team li .social_channels a > div.fb{
+    width: 20px;
+    height: 20px;
+    background-image: url('../resources/symbol_fb.png');
+    background-size: cover;
+    margin-right: 13px;
+}
+
+.abouttiaa_team li .social_channels a > div.linkedin{
+    width: 22px;
+    height: 20px;
+    background-image: url('../resources/symbol_linkedin.png');
+    background-size: cover;
+    margin-right: 13px;
+}

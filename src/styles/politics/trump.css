@@ -3,9 +3,19 @@
 .whattrumpsaid_hero{
     display: flex;
     flex-direction: column;
-    padding: 20% 35% 70px 65px;
+    padding: 13% 35% 70px 65px;
     justify-content: center;
     z-index: 999909;
+}
+
+.crust_logo{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../resources/tiaa_white.png');
+    background-size: 30px;
+    flex-shrink: 0;
+    text-indent: -9999px;
+    margin-bottom: 10px;
 }
 
 .whattrumpsaid_hero .hero1{

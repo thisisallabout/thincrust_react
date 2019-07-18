@@ -33,7 +33,7 @@ module.exports = {
         }),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
-            title: "thin crust",
+            title: "thisisallabout",
             filename: "./index.html"
         })
     ],

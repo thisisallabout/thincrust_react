@@ -1,0 +1,174 @@
+.crust_home {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.crust_header {
+    margin: 45px;
+}
+
+.crust_logo{
+    width: 30px;
+    height: 30px;
+    background-image: url('../resources/tiaa_black.png');
+    background-size: 30px;
+    flex-shrink: 0;
+    text-indent: -9999px;
+    margin-bottom: 10px;
+}
+
+.crust_header > p {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.hero_group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+    margin: 0 25px;
+    transition: all 200ms ease;
+}
+
+.hero_item_group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    transition: all 200ms ease;
+}
+
+.hero_group > a {
+    width: 100%;
+}
+
+.hero_item {
+    width: 49.8%;
+    height: 450px;
+    flex-shrink: 0;
+    background: #F1F1F1;
+    margin-bottom: 25px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] {
+    background: #000;
+    width: 100%;
+    height: 550px;
+}
+
+.hero_item[doughdata-id="trumpacrosstime"] {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.hero_item[doughdata-id="trumpfirstyear"] .box_images .img1 {
+    background-image: url('../resources/hero/trumpfirstyear@2x.png');
+    width: 260px;
+    height: 325px;
+    background-size: cover;
+}
+
+.hero_item[doughdata-id="trumpfirstyear"] .box_caption {
+    position: absolute;
+    bottom: 42px;
+    right: 40px;
+    width: 65%;
+    text-align: right;
+}
+
+.hero_item[doughdata-id="trumpacrosstime"] .box_images .img1 {
+    background-image: url('../resources/hero/trumpacrosstimes@2x.png');
+    width: 260px;
+    height: 325px;
+    background-size: cover;
+}
+
+.hero_item[doughdata-id="trumpacrosstime"] .box_caption {
+    position: absolute;
+    top: 42px;
+    left: 40px;
+    width: 50%;
+    text-align: left;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images > div {
+    width: 25vw;
+    height: 100%;
+    background-size: cover;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images .img1 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url('../resources/hero/biden@2x.png');
+    background-position-x: 41%;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images .img2 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url('../resources/hero/warren@2x.png');
+    background-position-x: 43%;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images .img3 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url('../resources/hero/sanders@2x.png');
+    background-position-x: 35%;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images .img4 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url('../resources/hero/harris@2x.png');
+    background-position-x: 34%;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_images .img5 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0 , 0.4) 0%, rgba(0, 0, 0, 0.2) 100%), url('../resources/hero/buttigieg@2x.png');
+    background-position-x: 24%;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_caption {
+    position: absolute;
+    bottom: 45px;
+    right: -7px;
+    width: 65%;
+    text-align: right;
+    color: #fff;
+}
+
+.hero_item .box_caption .hero1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.hero_item .box_caption .hero2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_caption .hero1 {
+    line-height: 65px;
+    font-size: 3.7em;
+    display: inline-flex;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_category {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    text-align: left;
+    color: #fff;
+}
+
+.hero_item[doughdata-id="inside2020_democrats"] .box_category p {
+    font-weight: 700;
+    opacity: 0.7;
+}

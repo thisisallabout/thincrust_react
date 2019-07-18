@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import loader from '~/styles/transitions/loader.css';
 import store from '~/store';
+import AppHeader from '~/components/appHeader';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
 import { getCurrentBackgroundTheme } from '~/selectors/appBackgroundTheme';
 
@@ -16,7 +17,8 @@ const Inside2020Candidates = ({match, history, appTheme}) => {
     
     return (
         <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
-            <h1>Topics</h1>
+            <AppHeader />
+            
         </div>
     )
 }
