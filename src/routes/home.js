@@ -14,7 +14,6 @@ const Home = () => {
             </div>
 
             <div className={hm.hero_group}>
-
                 <div className={hm.hero_item_group}>
                     <div className={hm.hero_item} doughdata-id="trumpfirstyear">
                         <div className={hm.box_images}>
@@ -66,6 +65,54 @@ const Home = () => {
                     </div>
                 </div>
                 {/**</Link>**/}
+            </div>
+
+            <div className={hm.hero_subsection}>
+                {/** 
+                <div className={hm.subsection_item}>
+                    <p className={hm.item_title}>Behind the scenes</p>
+                    <ul>
+                        <Link to={'/article/alg-trumpfirstyr'} key={'article-bhs_alg-trumpfirstyr'}>
+                            <li>
+                                The Algorith Behind <span className={hm.section_name}>/TrumpFirstYear</span>
+                            </li>
+                        </Link>
+                        <Link to={'/article/inside2020-dem'} key={'article-bhs_inside2020-dem'}>
+                            <li>
+                                Why is it important to know their own past words? <span className={hm.section_name}>/Inside2020</span>
+                            </li>
+                        </Link>
+                    </ul>
+                </div>
+                */}
+
+                <div className={hm.subsection_item}>
+                    <p className={hm.item_title}>Open-sourced work</p>
+                    <ul>
+                        <a href='https://github.com/toddoh/thisisallabout_backend/tree/master/kevin/processes/monthly' target='_blank'>
+                            <li>
+                                <span className={hm.section_name}>/TrumpFirstYear</span> Clustering
+                            </li>
+                        </a>
+                        <a href='https://github.com/toddoh/thincrust_politicians_tweets' target='_blank'>
+                            <li>
+                                <span className={hm.section_name}>/Inside2020</span> Dataset (Democrats)
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+            <div className={hm.crust_footer}>
+                <ul>
+                    <li>© 2019 thisisallabout.</li>
+                    <Link to={'/about'} key={'about'}>
+                        <li>about</li>
+                    </Link>
+                    <a href='mailto:thisisallabout.master@gmail.com'>
+                        <li>contact</li>
+                    </a>
+                </ul>
             </div>
         </div>
     )

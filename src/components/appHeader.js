@@ -18,9 +18,9 @@ const AppHeader = ({ appTheme }) => {
     }, [])
 
     const appHeaderScroll = (e) => {
-        if (document.documentElement.scrollTop >= 150) {
+        if (document.documentElement.scrollTop >= 150 || window.scrollY >= 150) {
             setIsWindowScrolled(true);
-        } else if (document.documentElement.scrollTop < 150) {
+        } else if (document.documentElement.scrollTop < 150 || window.scrollY < 150) {
             setIsWindowScrolled(false);
         }
     }

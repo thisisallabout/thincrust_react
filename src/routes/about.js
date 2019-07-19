@@ -14,7 +14,7 @@ import ab from '~/styles/about.css'
 import slidetransition from '~/styles/transitions/slideinout.css'
 import loader from '~/styles/transitions/loader.css';
 
-const About = (appTheme) => {
+const About = ({appTheme}) => {
 
     useEffect(() => {
         store.dispatch({ type: APP_BACKGROUND_THEME, state: { id: 'white' } });
@@ -24,7 +24,9 @@ const About = (appTheme) => {
         <div crust-apptheme={appTheme} style={appTheme == 'black' ? { 'backgroundColor': `#000` } : { 'backgroundColor': `#fff` }} >
             <AppHeader />
             <div className={ab.abouttiaa_hero}>
-                <div className={ab.crust_logo}></div>
+                <Link to={'/'} key={'home'}>
+                    <div className={ab.crust_logo}></div>
+                </Link>
                 <div className={ab.abouttiaa_herotext}>
                     <p className={ab.hero1}>It's all about</p>
                     <p className={ab.hero1}>what really matters.</p>

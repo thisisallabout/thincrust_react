@@ -21,6 +21,7 @@ function TrumpFirstYear({match, history, appTheme}) {
     const { typeId } = match.params;
 
     const [data, setData] = useState({ list: [] });
+    const [isInit, setIsInit] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [monthlyData, setMonthlyData] = useState({ list: [] });
     const [isMonthlyLoading, setIsMonthlyLoading] = useState(false);
@@ -43,23 +44,30 @@ function TrumpFirstYear({match, history, appTheme}) {
         }
 
         store.dispatch({ type: APP_BACKGROUND_THEME, state: { id:'black' } })
+        setIsInit(true)
     }, []);
 
+    
+
     useEffect(() => {
+        if (!isInit) return;
         if (!typeId) {
             removeMonthlyData();
+        } else {
+            if (monthlyData.list == []) fetchMonhtlyData(typeId)
         }
     }, [typeId]);
 
     const removeMonthlyData = async() => {
         await setMonthlyData({ list: [] })
+        console.log(location.pathname)
+        if (location.pathname == '/politics/TrumpFirstYear') return;
         history.push({
             pathname: '/politics/TrumpFirstYear'
         })
     }
 
     const fetchMonhtlyData = (month) => {
-        console.log(month)
         setIsMonthlyLoading(true);
         const result = axios(
             'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
@@ -97,7 +105,9 @@ function TrumpFirstYear({match, history, appTheme}) {
         <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
             <AppHeader />
             <div className={st.whattrumpsaid_hero}>
-                <div className={st.crust_logo}></div>
+                <Link to={'/'} key={'home'}>
+                    <div className={st.crust_logo}></div>
+                </Link>
                 <div className={st.whattrumpsaid_herotext}>
                     <p className={st.hero1}>Reading Trump's moves</p>
                     <p className={st.hero1}>through his tweets</p>
