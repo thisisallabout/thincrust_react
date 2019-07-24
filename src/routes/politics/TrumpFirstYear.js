@@ -4,6 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Helmet } from "react-helmet";
 
 import store from '~/store';
 import AppHeader from '~/components/appHeader';
@@ -28,10 +29,12 @@ function TrumpFirstYear({match, history, appTheme}) {
 
 
     useEffect(() => {
+        document.title = "#TrumpFirstYear - thisisallabout";
+
         const fetchData = async () => {
             setIsLoading(true);
             const result = await axios(
-                'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/list_data.json',
+                'https://thisisallabout.com/dataset/trumptweeted/list_data.json',
             );
             
             setData({list: result.data});
@@ -60,7 +63,6 @@ function TrumpFirstYear({match, history, appTheme}) {
 
     const removeMonthlyData = async() => {
         await setMonthlyData({ list: [] })
-        console.log(location.pathname)
         if (location.pathname == '/politics/TrumpFirstYear') return;
         history.push({
             pathname: '/politics/TrumpFirstYear'
@@ -70,7 +72,7 @@ function TrumpFirstYear({match, history, appTheme}) {
     const fetchMonhtlyData = (month) => {
         setIsMonthlyLoading(true);
         const result = axios(
-            'https://toddoh.com/thisisallabout/data_publish_ready/trumptweeted/' + month + '.json',
+            'https://thisisallabout.com/dataset/trumptweeted/' + month + '.json',
         ).then(async(response) => {
             await setMonthlyData({list: response.data[0]});
             history.push(`/politics/TrumpFirstYear/${month}`)
@@ -103,6 +105,15 @@ function TrumpFirstYear({match, history, appTheme}) {
 
     return (
         <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
+            <Helmet>
+                <html lang="en" amp />
+                <base target="_blank" href="https://thisisallabout.com/" />
+                <title>#TrumpFirstYear - thisisallabout</title>
+                <meta name="description" content="We all know that President Trump loves posting on Twitter. And that means you can see through his fanciful game by tweets. Here's an analysis of his first year tweets since day one." />
+                <meta name="keywords" cpntent="trump,president,donald,donald trump,tweet,trumpfirstyear,whattrumpsaid,thisisallabout,first year,whitehouse,twitter" />
+                <meta property="og:type" content="article" />
+            </Helmet>
+            
             <AppHeader />
             <div className={st.whattrumpsaid_hero}>
                 <Link to={'/'} key={'home'}>
@@ -112,7 +123,7 @@ function TrumpFirstYear({match, history, appTheme}) {
                     <p className={st.hero1}>Reading Trump's moves</p>
                     <p className={st.hero1}>through his tweets</p>
                     <p className={st.hero2}>We all know that President Trump loves posting on Twitter. And that means you can see through his fanciful game by tweets. Here's an analysis of his first year tweets since day one.</p>
-                    <p className={st.hero3}>Last updated on June 24, 2018. Editor: Trevor Stonefield, Data Analyst: "Todd" Seungyun Oh</p>
+                    <p className={st.hero3}>Last updated on June 24, 2018</p>
                 </div>
             </div>
             {isLoading && (

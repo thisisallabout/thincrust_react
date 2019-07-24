@@ -35,10 +35,10 @@ const Home = () => {
                         
                         <Link to={'/politics/TrumpAcrossTime'} key={'TrumpAcrossTime'}>
                         <div className={hm.box_caption}>
-                            <p className={hm.hero1}>"Trumpism"</p>
+                            <p className={hm.hero1}>Trumpism</p>
                             <p className={hm.hero1}>redefines</p>
-                            <p className={hm.hero1}>nation's political landscape</p>
-                            <p className={hm.hero2}>A look into a newly-rising ideological group</p>
+                            <p className={hm.hero1}>the nation's political landscape</p>
+                            <p className={hm.hero2}>A look into a radically different approach.</p>
                         </div>
                         </Link>
                     </div>

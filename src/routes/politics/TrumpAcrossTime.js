@@ -50,7 +50,7 @@ function TrumpAcrossTime({ match, history, appTheme }) {
                         <div className={st.crust_logo}></div>
                     </Link>
                     <div className={st.trumpacrosstime_herotext}>
-                        <p className={st.hero1}>"Trumpism"</p>
+                        <p className={st.hero1}>Trumpism</p>
                         <p className={st.hero1}>that redefined political landscape</p>
                         <p className={st.hero2}>President Trump's governance is radically different than traditional manner. And that redefined political landscape of the nation. This in-depth highlights what constructs "Trumpism".</p>
                         <p className={st.hero3}>Preview on July 28, 2019 Editor: Trevor Stonefield, Data Analyst: "Todd" Seungyun Oh</p>

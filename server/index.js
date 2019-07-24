@@ -3,9 +3,10 @@ const path = require('path');
 const http = require('http');
 
 const app = express();
+const router = express.Router()
 
-// Point static path to dist
 app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use('/dataset', express.static(path.join(__dirname, '..', 'dataset')));
 
 const routes = require('./routes')
 app.use('/', routes);
