@@ -15,6 +15,10 @@ const AppHeader = ({ appTheme }) => {
 
     useEffect(() => {
         window.addEventListener('scroll', appHeaderScroll);
+
+        return () => {
+            window.removeEventListener('scroll', appHeaderScroll);
+        };
     }, [])
 
     const appHeaderScroll = (e) => {
@@ -37,16 +41,19 @@ const AppHeader = ({ appTheme }) => {
             <div className={st.crust_logo} onClick={onEnterSetTheme}>thincrust</div>
         </Link>
         <div className={st.header_reveal_action}></div>
-        {/** 
+        
         <ul className={st.header_sections}>
+            <Link to={'/'} key={'Home'}>
+                <li className={st.header_section_item} data-id="nav-home">Home</li>
+            </Link>
             <Link to={'/politics/TrumpFirstYear'} key={'TrumpFirstYear'}>
                 <li className={st.header_section_item} data-id="nav-trumpfirstyear">TrumpFirstYear</li>
             </Link>
-            <Link to={'/politics/Inside2020/Democrats'} key={'Inside2020Democrats'}>
-                <li className={st.header_section_item} data-id="nav-inside2020democrats">Inside2020</li>
+            <Link to={'/politics/TrumpAcrossTime'} key={'TrumpAcrossTime'}>
+                <li className={st.header_section_item} data-id="nav-trumpacrosstime">TrumpAcrossTime</li>
             </Link>
         </ul>
-        **/}
+        
     </div>
     )
 }

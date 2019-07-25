@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Helmet } from "react-helmet";
 
 import hm from "~/styles/home.css";
 
@@ -8,6 +9,12 @@ const Home = () => {
 
     return (
         <div className={hm.crust_home}>
+            <Helmet>
+                <title>thisisallabout</title>
+                <meta name="description" content="We unravel complex issues and agendas by group, timeframe, and key topic using intelligent data analysis and great visualization." />
+                <meta name="keywords" cpntent="thisisallabout,data analytics,data analysis,data journalism,journalism,trump,president,donald,donald trump,tweet,trumpfirstyear,whattrumpsaid,twitter" />
+            </Helmet>
+
             <div className={hm.crust_header}>
                 <div className={hm.crust_logo}>thisisallabout</div>
                 <p>thisisallabout</p>

@@ -6,6 +6,9 @@ import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Helmet } from "react-helmet";
 
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton } from 'react-share';
+import { FacebookIcon, LinkedinIcon, TwitterIcon, RedditIcon, EmailIcon } from 'react-share';
+
 import store from '~/store';
 import AppHeader from '~/components/appHeader';
 import { APP_BACKGROUND_THEME } from '~/constants/actionTypes';
@@ -34,7 +37,9 @@ function TrumpFirstYear({match, history, appTheme}) {
         const fetchData = async () => {
             setIsLoading(true);
             const result = await axios(
-                'https://thisisallabout.com/dataset/trumptweeted/list_data.json',
+                (process.env.NODE_ENV == 'production') ?
+                'https://thisisallabout.com/dataset/trumptweeted/list_data.json' :
+                'http://localhost:8080/dataset/trumptweeted/list_data.json'
             );
             
             setData({list: result.data});
@@ -48,6 +53,10 @@ function TrumpFirstYear({match, history, appTheme}) {
 
         store.dispatch({ type: APP_BACKGROUND_THEME, state: { id:'black' } })
         setIsInit(true)
+
+        return () => {
+            
+        };
     }, []);
 
     
@@ -59,6 +68,10 @@ function TrumpFirstYear({match, history, appTheme}) {
         } else {
             if (monthlyData.list == []) fetchMonhtlyData(typeId)
         }
+
+        return () => {
+            
+        };
     }, [typeId]);
 
     const removeMonthlyData = async() => {
@@ -67,12 +80,18 @@ function TrumpFirstYear({match, history, appTheme}) {
         history.push({
             pathname: '/politics/TrumpFirstYear'
         })
+
+        return () => {
+            
+        };
     }
 
     const fetchMonhtlyData = (month) => {
         setIsMonthlyLoading(true);
         const result = axios(
-            'https://thisisallabout.com/dataset/trumptweeted/' + month + '.json',
+            (process.env.NODE_ENV == 'production') ?
+            'https://thisisallabout.com/dataset/trumptweeted/' + month + '.json' :
+            'http://localhost:8080/dataset/trumptweeted/' + month + '.json'
         ).then(async(response) => {
             await setMonthlyData({list: response.data[0]});
             history.push(`/politics/TrumpFirstYear/${month}`)
@@ -82,6 +101,10 @@ function TrumpFirstYear({match, history, appTheme}) {
         }).then(() => {
             setIsMonthlyLoading(false);
         });
+        
+        return () => {
+            
+        };
     };
 
 
@@ -107,7 +130,6 @@ function TrumpFirstYear({match, history, appTheme}) {
         <div crust-apptheme={appTheme} style={ appTheme == 'black' ? {'backgroundColor': `#000`} : {'backgroundColor': `#fff`}}>
             <Helmet>
                 <html lang="en" amp />
-                <base target="_blank" href="https://thisisallabout.com/" />
                 <title>#TrumpFirstYear - thisisallabout</title>
                 <meta name="description" content="We all know that President Trump loves posting on Twitter. And that means you can see through his fanciful game by tweets. Here's an analysis of his first year tweets since day one." />
                 <meta name="keywords" cpntent="trump,president,donald,donald trump,tweet,trumpfirstyear,whattrumpsaid,thisisallabout,first year,whitehouse,twitter" />
@@ -124,6 +146,44 @@ function TrumpFirstYear({match, history, appTheme}) {
                     <p className={st.hero1}>through his tweets</p>
                     <p className={st.hero2}>We all know that President Trump loves posting on Twitter. And that means you can see through his fanciful game by tweets. Here's an analysis of his first year tweets since day one.</p>
                     <p className={st.hero3}>Last updated on June 24, 2018</p>
+                    <div className={st.whattrumpsaid_herosocial}>
+                        <FacebookShareButton
+                            url={window.location.href}
+                            quote="#TrumpFirstYear on thisisallabout">
+                            <FacebookIcon
+                            size={31}
+                            round />
+                        </FacebookShareButton>
+                        <TwitterShareButton
+                            url={window.location.href}
+                            quote="#TrumpFirstYear on thisisallabout">
+                            <TwitterIcon
+                            size={31}
+                            round />
+                        </TwitterShareButton>
+                        <LinkedinShareButton
+                            url={window.location.href}
+                            quote="#TrumpFirstYear on thisisallabout">
+                            <LinkedinIcon
+                            size={31}
+                            round />
+                        </LinkedinShareButton>
+                        <RedditShareButton
+                            url={window.location.href}
+                            quote="#TrumpFirstYear on thisisallabout">
+                            <RedditIcon
+                            size={31}
+                            round />
+                        </RedditShareButton>
+                        <EmailShareButton
+                            url={window.location.href}
+                            subject="#TrumpFirstYear on thisisallabout"
+                            body="Hey, take a look at this analysis piece about President Trump's first year tweets! ">
+                            <EmailIcon
+                            size={31}
+                            round />
+                        </EmailShareButton>
+                    </div>
                 </div>
             </div>
             {isLoading && (
@@ -154,15 +214,6 @@ function TrumpFirstYear({match, history, appTheme}) {
                 </CSSTransition>
                 )}
             </TransitionGroup>
-            
-
-            <div className={st.whattrumpsaid_datapopup}>
-                <div className={st.datapopup_contents}>
-                </div>
-                <div className={st.datapopup_close_action}>
-                    <div className={st.icon}></div>
-                </div>
-            </div>
 
         </div>
     )

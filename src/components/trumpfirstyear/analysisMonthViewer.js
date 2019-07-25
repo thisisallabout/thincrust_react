@@ -1,9 +1,15 @@
 import React, { Fragment, lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import VisibilitySensor from 'react-visibility-sensor';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton } from 'react-share';
+import { FacebookIcon, LinkedinIcon, TwitterIcon, RedditIcon, EmailIcon } from 'react-share';
 
 import st from '~/styles/politics/trump.css'
+import slidetransition from '~/styles/transitions/slideinout.css'
 import AnalysisDynamicBg from '~/components/trumpfirstyear/analysisDynamicBg'
+import AnalysisDataPopup from '~/components/trumpfirstyear/analysisDataPopup'
 
 function AnalysisItem (props) {
     const { item, visible, activateDynamicBg } = props;
@@ -45,10 +51,24 @@ function AnalysisItem (props) {
 function AnalysisMonthViewer (props) {
     const { data, month } = props;
     const [activeDynamicBg, setActiveDynamicBg] = useState({ item: [] });
+    const [allTweets, setAllTweets] = useState({ list: [] });
 
     useEffect(() => {
         //console.log(activeDynamicBg.item)
     }, [activeDynamicBg]);
+
+    const getAllTweets = (id) => {
+        props.data.data.map((item) => {
+            if (item.id === id) {
+                setAllTweets({ list: item.articles });
+                return;
+            }
+        });
+    }
+
+    const removeAllTweetsData = () => {
+        setAllTweets({ list: [] });
+    }
 
     return (
         data.data == undefined ? (
@@ -73,11 +93,11 @@ function AnalysisMonthViewer (props) {
                                     {item.picked[0].url && (<p className={st.link_text}>{item.picked[0].url}</p>)}
                                 </div>
                                 {item.image ? (
-                                <div className={st.item_revealtweets_action}>
+                                <div className={st.item_revealtweets_action} onClick={() => getAllTweets(item.id)}>
                                     <p>MORE</p>
                                 </div>
                                 ) : (
-                                <div className={`${st.item_revealtweets_action} ${st.nobg}`}>
+                                <div className={`${st.item_revealtweets_action} ${st.nobg}`} onClick={() => getAllTweets(item.id)}>
                                     <p>MORE</p>
                                 </div>
                                 )}
@@ -96,26 +116,67 @@ function AnalysisMonthViewer (props) {
                                 </Fragment>
                             )
                             }
-                            
-                            
-                            <div className={st.item_tweets}>
-                            {item.articles.map((tweets,i) => 
-                                <div className={st.tweet_item} key={tweets.title + i}>
-                                    <p className={st.text}>{tweets.title}</p>
-                                    <p className={st.ts} doughdata-ts={tweets.title + i}></p>
-                                </div>
-                            )}
-                            </div>
                         </div>                
                 )}
                 </div>
             </div>
+            
+            <TransitionGroup component={null}>
+                {allTweets.list !== [] && (
+                <CSSTransition
+                    timeout={300}
+                    classNames={slidetransition}
+                    unmountOnExit
+                    appear>
+                    <AnalysisDataPopup data={allTweets.list} removeAllTweetsData={() => { removeAllTweetsData() }} />
+                </CSSTransition>
+                )}
+            </TransitionGroup>
 
             <div className={st.whattrumpsaid_analysis_data_panelactions}>
                 <div className={st.whattrumpsaid_analysis_data_action_close} onClick={props.removeMonthlyData}>
                     <div className={st.icon}></div>
                     <p>Close</p>
                 </div>
+                <div className={st.whattrumpsaid_analysis_data_action_social}>
+                    <FacebookShareButton
+                        url={window.location.href}
+                        quote="#TrumpFirstYear on thisisallabout">
+                        <FacebookIcon
+                        size={22}
+                        round />
+                    </FacebookShareButton>
+                    <TwitterShareButton
+                        url={window.location.href}
+                        quote="#TrumpFirstYear on thisisallabout">
+                        <TwitterIcon
+                        size={22}
+                        round />
+                    </TwitterShareButton>
+                    <LinkedinShareButton
+                        url={window.location.href}
+                        quote="#TrumpFirstYear on thisisallabout">
+                        <LinkedinIcon
+                        size={22}
+                        round />
+                    </LinkedinShareButton>
+                    <RedditShareButton
+                        url={window.location.href}
+                        quote="#TrumpFirstYear on thisisallabout">
+                        <RedditIcon
+                        size={22}
+                        round />
+                    </RedditShareButton>
+                    <EmailShareButton
+                        url={window.location.href}
+                        subject="#TrumpFirstYear on thisisallabout"
+                        body="Hey, take a look at this analysis piece about President Trump's first year tweets! ">
+                        <EmailIcon
+                        size={22}
+                        round />
+                    </EmailShareButton>
+                </div>
+
             </div>
         </div>
         )

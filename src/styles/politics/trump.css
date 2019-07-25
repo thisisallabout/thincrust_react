@@ -8,6 +8,20 @@
     z-index: 999909;
 }
 
+.whattrumpsaid_herosocial {
+    display: flex;
+    margin-top: 15px;
+    filter: grayscale(100%);
+}
+
+.whattrumpsaid_herosocial > div {
+    margin: 0 3px;
+}
+
+.whattrumpsaid_herosocial > div:nth-child(1) {
+    margin: 0 3px 0 0;
+}
+
 .crust_logo{
     width: 30px;
     height: 30px;
@@ -995,7 +1009,7 @@
     position: absolute;
     bottom: 20px;
     padding: 5px 0;
-    color: rgba(33, 33, 33, 0.61);
+    color: rgb(121, 121, 121);
     font-weight: 600;
     font-size: 0.9em;
     text-transform: uppercase;
@@ -1044,6 +1058,15 @@
     background-size: cover;
 }
 
+.whattrumpsaid_analysis_data_action_social {
+    display: flex;
+    margin-left: 15px;
+}
+
+.whattrumpsaid_analysis_data_action_social > div {
+    margin: 0 3px;
+}
+
 .whattrumpsaid_datapopup .item_tweets{
     display: flex;
     flex-wrap: wrap;
@@ -1069,33 +1092,24 @@
 
 
 
-.whattrumpsaid_datapopup{
+.whattrumpsaid_datapopup.opened{
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    display: block;
+    display: flex;
     background: #fff;
     overflow: hidden;
-    z-index: 9999904;
-    transform: translate3d(0,200%,0);
-    transition: all 300ms ease;
-}
-
-.whattrumpsaid_datapopup.opened{
-    transform: translate3d(0,0,0);
+    z-index: 999999903;
 }
 
 .whattrumpsaid_datapopup.opened .datapopup_contents {
     padding: 120px 10%;
-    height: calc(100% - 160px);
+    height: calc(100% - 240px);
+    width: calc(100% - 20%);
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
-}
-
-.whattrumpsaid_datapopup .datapopup_close_action{
-    display: none;
 }
 
 .whattrumpsaid_datapopup.opened .datapopup_close_action{
@@ -1111,7 +1125,7 @@
     transform: translateZ(0);
 }
 
-.whattrumpsaid_datapopup .datapopup-close-action .icon{
+.whattrumpsaid_datapopup.opened .datapopup_close_action .icon{
     width: 15px;
     height: 13px;
     background-image: url('../../resources/symbol_close.png');
